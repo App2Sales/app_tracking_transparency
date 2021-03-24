@@ -47,7 +47,6 @@ class _HomePageState extends State<HomePage> {
 
     final uuid = await AppTrackingTransparency.getAdvertisingIdentifier();
     print("UUID: $uuid");
-
   }
 
   Future<bool> showCustomTrackingDialog(BuildContext context) async =>
@@ -56,16 +55,15 @@ class _HomePageState extends State<HomePage> {
         builder: (context) => AlertDialog(
           title: const Text('Dear User'),
           content: const Text(
-            'We care about your privacy and data security. We keep this app free by showing ads. '
-            'Can we continue to use your data to tailor ads for you?\n\nYou can change your choice anytime in the app settings. '
-            'Our partners will collect data and use a unique identifier on your device to show you ads.'
-          ),
+              'We care about your privacy and data security. We keep this app free by showing ads. '
+              'Can we continue to use your data to tailor ads for you?\n\nYou can change your choice anytime in the app settings. '
+              'Our partners will collect data and use a unique identifier on your device to show you ads.'),
           actions: [
-            TextButton(
+            FlatButton(
               onPressed: () => Navigator.pop(context, false),
               child: const Text("I'll decide later"),
             ),
-            TextButton(
+            FlatButton(
               onPressed: () => Navigator.pop(context, true),
               child: const Text('Allow tracking'),
             ),
